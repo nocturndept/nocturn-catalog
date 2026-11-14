@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nocturn Dept. // Catálogo Virtual</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #050505; color: #f3f4f6; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #404040; }
+    </style>
+</head>
+<body class="bg-[#050505] text-gray-100 min-h-screen flex flex-col selection:bg-neutral-800 selection:text-white">
+
+    <!-- TOPO AVISO -->
+    <div class="bg-black text-neutral-400 text-xs py-2 px-4 text-center tracking-widest border-b border-neutral-900 uppercase flex items-center justify-center gap-2">
+        <span>NOCTURN DEPT. // DARKWEAR & STREETWEAR CATALOG</span>
+        <span id="cloud-status-dot" class="w-2 h-2 rounded-full bg-neutral-600" title="Status da Nuvem"></span>
+    </div>
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-40 bg-[#050505]/90 backdrop-blur-md border-b border-neutral-900 px-4 lg:px-12 py-4 flex items-center justify-between">
+        <div id="admin-trigger" class="flex items-center gap-3 cursor-pointer group select-none" title="Nocturn Dept">
+            <div class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center overflow-hidden group-hover:border-neutral-600 transition-all shadow-lg">
+                <img id="header-logo-img" alt="Nocturn Dept" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <span id="store-title-header" class="font-bold tracking-widest text-white text-lg">NOCTURN // DEPT.</span>
+                <span class="block text-[10px] text-neutral-500 tracking-wider">CATÁLOGO VIRTUAL</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a id="header-whatsapp-link" href="https://wa.me/5545999689893" target="_blank" class="hidden sm:flex items-center gap-2 text-xs text-neutral-400 bg-neutral-900/80 border border-neutral-800 px-3 py-2 rounded-xl hover:text-white hover:border-neutral-700 transition">
+                <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span id="header-whatsapp-number">+55 45 99968-9893</span>
+            </a>
+
+            <button onclick="toggleCart()" class="relative bg-neutral-900 border border-neutral-800 text-white p-2.5 rounded-xl hover:border-neutral-600 transition flex items-center gap-2 cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                <span class="hidden md:inline text-xs font-medium pr-1">Sacola</span>
+                <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-white text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 lg:px-12 py-8">
+        <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-neutral-900 pb-6">
+            <div>
+                <h1 id="store-title-main" class="text-3xl lg:text-4xl font-bold tracking-tight text-white">NOCTURN // DEPT.</h1>
+                <p class="text-neutral-400 text-sm mt-1">Selecione suas peças, monte seu pedido e finalize direto no WhatsApp.</p>
+            </div>
+
+            <div id="category-filters" class="flex flex-wrap gap-2">
+                <button onclick="setCategory('all', this)" class="cat-btn active text-xs font-medium px-4 py-2 rounded-xl bg-white text-black transition cursor-pointer">Todos</button>
+                <button onclick="setCategory('Camisetas', this)" class="cat-btn text-xs font-medium px-4 py-2 rounded-xl bg-neutral-900 text-neutral-400 hover:bg-neutral-800 hover:text-white transition cursor-pointer">Camisetas</button>
+                <button onclick="setCategory('Moletons', this)" class="cat-btn text-xs font-medium px-4 py-2 rounded-xl bg-neutral-900 text-neutral-400 hover:bg-neutral-800 hover:text-white transition cursor-pointer">Moletons</button>
+                <button onclick="setCategory('Calças', this)" class="cat-btn text-xs font-medium px-4 py-2 rounded-xl bg-neutral-900 text-neutral-400 hover:bg-neutral-800 hover:text-white transition cursor-pointer">Calças</button>
+                <button onclick="setCategory('Acessórios', this)" class="cat-btn text-xs font-medium px-4 py-2 rounded-xl bg-neutral-900 text-neutral-400 hover:bg-neutral-800 hover:text-white transition cursor-pointer">Acessórios</button>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <div class="relative max-w-md">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-neutral-500">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </span>
+                <input type="text" id="search-input" oninput="filterProducts()" placeholder="Buscar peças por nome..." class="w-full bg-neutral-900/60 border border-neutral-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-neutral-600 transition">
+            </div>
+        </div>
+
+        <!-- LOADING STATE -->
+        <div id="loading-state" class="text-center py-20">
+            <div class="w-8 h-8 border-2 border-neutral-800 border-t-white rounded-full animate-spin mx-auto mb-3"></div>
+            <p class="text-neutral-500 text-xs tracking-wider uppercase">Sincronizando catálogo...</p>
+        </div>
+
+        <!-- GRADE DE PRODUTOS -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hidden"></div>
+
+        <!-- ESTADO VAZIO -->
+        <div id="empty-state" class="hidden text-center py-20">
+            <p class="text-neutral-500 text-sm">Nenhuma peça encontrada com esses filtros.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-neutral-900 bg-[#030303] py-12 px-4 lg:px-12 mt-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center overflow-hidden">
+                    <img id="footer-logo-img" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <span class="text-sm font-semibold tracking-wider text-white">NOCTURN // DEPT.</span>
+            </div>
+            <p class="text-xs text-neutral-500 text-center">Catálogo Virtual de Streetwear & Darkwear. Todos os direitos reservados.</p>
+            <div class="text-xs text-neutral-600"><span>Nocturn Engine v10.0</span></div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE VISUALIZAÇÃO DETALHADA -->
+    <div id="product-detail-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#0a0a0a] border border-neutral-800 rounded-2xl max-w-xl w-full p-6 shadow-2xl relative">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-white p-1 rounded-lg hover:bg-neutral-900 transition cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div id="modal-product-content"></div>
+        </div>
+    </div>
+
+    <!-- SACOLA LATERAL -->
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-[#0a0a0a] border-l border-neutral-800 z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+        <div class="p-5 border-b border-neutral-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                <h2 class="font-bold text-white tracking-wide">Sua Sacola</h2>
+                <span id="cart-count-badge" class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded-full ml-1">0</span>
+            </div>
+            <button onclick="toggleCart()" class="text-neutral-400 hover:text-white p-1 rounded-lg hover:bg-neutral-900 transition cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <div id="cart-items-container" class="flex-grow overflow-y-auto p-5 divide-y divide-neutral-900"></div>
+
+        <div class="p-5 border-t border-neutral-800 bg-[#080808]">
+            <div class="space-y-3 mb-4">
+                <div>
+                    <label class="block text-[11px] font-medium text-neutral-400 uppercase tracking-wider mb-1">Seu Nome</label>
+                    <input type="text" id="customer-name" placeholder="Ex: Carlos Eduardo" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-neutral-600">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-[11px] font-medium text-neutral-400 uppercase tracking-wider mb-1">Método</label>
+                        <select id="customer-delivery" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600">
+                            <option value="Entrega / Envio">Entrega / Envio</option>
+                            <option value="Retirada">Retirada no Local</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-medium text-neutral-400 uppercase tracking-wider mb-1">Bairro / Cidade</label>
+                        <input type="text" id="customer-address" placeholder="Ex: Centro" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-neutral-600">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between mb-4 pt-3 border-t border-neutral-900">
+                <span class="text-sm text-neutral-400">Subtotal</span>
+                <span id="cart-subtotal" class="text-lg font-bold text-white">R$ 0,00</span>
+            </div>
+
+            <button id="checkout-btn" onclick="checkoutWhatsApp()" class="w-full bg-white text-black font-semibold py-3 rounded-xl hover:bg-neutral-200 transition text-sm flex items-center justify-center gap-2 cursor-pointer shadow-lg">
+                Gerar Pedido & Enviar ao WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- PAINEL ADMINISTRATIVO OCULTO -->
+    <div id="admin-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex flex-col p-4 sm:p-8 overflow-y-auto">
+        <div class="max-w-4xl mx-auto w-full bg-[#0a0a0a] border border-neutral-800 rounded-2xl shadow-2xl flex flex-col my-auto overflow-hidden">
+            <div class="p-5 border-b border-neutral-800 flex items-center justify-between bg-neutral-950">
+                <div class="flex items-center gap-3">
+                    <div id="admin-sync-dot" class="w-3 h-3 bg-neutral-600 rounded-full"></div>
+                    <h2 class="font-bold text-white tracking-wide text-sm">PAINEL ADMINISTRATIVO // NOCTURN DEPT</h2>
+                </div>
+                <button onclick="closeAdmin()" class="text-neutral-400 hover:text-white p-1.5 rounded-lg hover:bg-neutral-900 transition cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <div class="flex border-b border-neutral-800 bg-neutral-900/50 overflow-x-auto text-xs">
+                <button onclick="switchAdminTab('products')" id="tab-btn-products" class="px-5 py-3 font-semibold text-white border-b-2 border-white transition cursor-pointer whitespace-nowrap">Gerenciar Peças</button>
+                <button onclick="switchAdminTab('lookup')" id="tab-btn-lookup" class="px-5 py-3 font-medium text-neutral-400 hover:text-white transition cursor-pointer whitespace-nowrap">🔍 Consultar Pedido</button>
+                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="px-5 py-3 font-medium text-neutral-400 hover:text-white transition cursor-pointer whitespace-nowrap">Identidade & WhatsApp</button>
+                <button onclick="switchAdminTab('repo')" id="tab-btn-repo" class="px-5 py-3 font-medium text-neutral-400 hover:text-white transition cursor-pointer whitespace-nowrap">🌐 Configuração Nuvem</button>
+            </div>
+
+            <div class="p-6 flex-grow overflow-y-auto max-h-[70vh]">
+                <!-- ABA PRODUTOS -->
+                <div id="admin-tab-products" class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-sm font-semibold text-white">Cadastrar / Editar Peças (Até 3 Fotos)</h3>
+                        <div class="flex gap-2">
+                            <button onclick="loadFromGitHub(true)" class="bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-medium px-3 py-2 rounded-xl transition cursor-pointer">↻ Sincronizar</button>
+                            <button onclick="openProductForm()" class="bg-white text-black text-xs font-semibold px-4 py-2 rounded-xl hover:bg-neutral-200 transition cursor-pointer">+ Nova Peça</button>
+                        </div>
+                    </div>
+
+                    <div id="product-form-box" class="hidden bg-neutral-900/80 border border-neutral-800 p-4 rounded-xl space-y-4">
+                        <input type="hidden" id="edit-product-id">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] font-medium text-neutral-400 mb-1">Nome da Peça</label>
+                                <input type="text" id="form-name" class="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600" placeholder="Ex: Oversized Tee Eclipse">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-medium text-neutral-400 mb-1">Categoria</label>
+                                <select id="form-category" class="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600">
+                                    <option value="Camisetas">Camisetas</option>
+                                    <option value="Moletons">Moletons</option>
+                                    <option value="Calças">Calças</option>
+                                    <option value="Acessórios">Acessórios</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] font-medium text-neutral-400 mb-1">Preço (R$)</label>
+                                <input type="number" step="0.01" id="form-price" class="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600" placeholder="189.90">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-medium text-neutral-400 mb-1">Tamanhos (separados por vírgula)</label>
+                                <input type="text" id="form-sizes" class="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600" value="P, M, G, GG">
+                            </div>
+                        </div>
+
+                        <!-- 3 SLOTS DE UPLOAD DIRETO DE ARQUIVO -->
+                        <div class="border-t border-neutral-800 pt-4 space-y-4">
+                            <p class="text-xs text-emerald-400 font-semibold">📸 Selecione as 3 Fotos do Aparelho (Frente, Costas, Detalhe)</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div class="bg-neutral-950 border border-neutral-800 p-3 rounded-xl flex flex-col gap-2">
+                                    <span class="text-[11px] font-medium text-neutral-300 text-center">1. Frente</span>
+                                    <div id="preview-slot-0" class="w-full h-24 bg-neutral-900 rounded-lg border border-neutral-800 overflow-hidden flex items-center justify-center text-neutral-600 text-[10px]">Sem foto</div>
+                                    <input type="file" id="file-input-0" accept="image/*" class="w-full text-[10px] text-neutral-400 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-semibold file:bg-neutral-800 file:text-white hover:file:bg-neutral-700 cursor-pointer" onchange="handleFileUpload(0, event)">
+                                </div>
+                                <div class="bg-neutral-950 border border-neutral-800 p-3 rounded-xl flex flex-col gap-2">
+                                    <span class="text-[11px] font-medium text-neutral-300 text-center">2. Costas</span>
+                                    <div id="preview-slot-1" class="w-full h-24 bg-neutral-900 rounded-lg border border-neutral-800 overflow-hidden flex items-center justify-center text-neutral-600 text-[10px]">Sem foto</div>
+                                    <input type="file" id="file-input-1" accept="image/*" class="w-full text-[10px] text-neutral-400 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-semibold file:bg-neutral-800 file:text-white hover:file:bg-neutral-700 cursor-pointer" onchange="handleFileUpload(1, event)">
+                                </div>
+                                <div class="bg-neutral-950 border border-neutral-800 p-3 rounded-xl flex flex-col gap-2">
+                                    <span class="text-[11px] font-medium text-neutral-300 text-center">3. Detalhe</span>
+                                    <div id="preview-slot-2" class="w-full h-24 bg-neutral-900 rounded-lg border border-neutral-800 overflow-hidden flex items-center justify-center text-neutral-600 text-[10px]">Sem foto</div>
+                                    <input type="file" id="file-input-2" accept="image/*" class="w-full text-[10px] text-neutral-400 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-semibold file:bg-neutral-800 file:text-white hover:file:bg-neutral-700 cursor-pointer" onchange="handleFileUpload(2, event)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 pt-2">
+                            <label class="flex items-center gap-2 text-xs text-neutral-300 cursor-pointer">
+                                <input type="checkbox" id="form-soldout" class="rounded bg-neutral-950 border-neutral-800 text-white focus:ring-0">
+                                Marcar como Esgotado
+                            </label>
+                        </div>
+
+                        <div class="flex justify-end gap-2 pt-4 border-t border-neutral-800">
+                            <button onclick="cancelProductForm()" class="bg-neutral-800 text-neutral-300 px-4 py-2.5 rounded-xl text-xs font-medium transition cursor-pointer">Cancelar</button>
+                            <button id="save-product-btn" onclick="saveProductAndSync()" class="bg-white text-black font-bold px-6 py-2.5 rounded-xl text-xs hover:bg-neutral-200 transition cursor-pointer shadow-lg">🚀 Salvar & Publicar na Nuvem</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-neutral-900/80 text-neutral-400 border-b border-neutral-800">
+                                <tr>
+                                    <th class="p-3">Peça</th>
+                                    <th class="p-3">Categoria</th>
+                                    <th class="p-3">Preço</th>
+                                    <th class="p-3 text-right">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-product-list" class="divide-y divide-neutral-900"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ABA CONSULTAR PEDIDO -->
+                <div id="admin-tab-lookup" class="space-y-6 hidden">
+                    <div class="space-y-4 max-w-xl">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-semibold text-white">Ver Peças do Pedido pelo Código</h3>
+                            <button onclick="loadFromGitHub(true)" class="text-xs text-neutral-400 hover:text-white underline cursor-pointer">↻ Atualizar pedidos</button>
+                        </div>
+                        <p class="text-xs text-neutral-400">Digite ou cole o número do pedido recebido no WhatsApp (ex: #PED-4829).</p>
+                        
+                        <div class="flex gap-2">
+                            <input type="text" id="lookup-code-input" placeholder="#PED-XXXX" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-neutral-600 font-mono">
+                            <button onclick="lookupOrder()" class="bg-white text-black font-semibold px-5 py-2.5 rounded-xl text-xs hover:bg-neutral-200 transition cursor-pointer whitespace-nowrap">Buscar</button>
+                        </div>
+
+                        <div id="lookup-result" class="mt-4 space-y-4"></div>
+                    </div>
+                </div>
+
+                <!-- ABA CONFIGURAÇÕES -->
+                <div id="admin-tab-settings" class="space-y-6 hidden">
+                    <div class="space-y-4 max-w-xl">
+                        <h3 class="text-sm font-semibold text-white">Configurações da Loja</h3>
+                        <div>
+                            <label class="block text-[11px] font-medium text-neutral-400 mb-1">Nome da Loja</label>
+                            <input type="text" id="settings-store-name" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600" value="Nocturn Dept.">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-medium text-neutral-400 mb-1">WhatsApp (com DDI e DDD, ex: 5545999689893)</label>
+                            <input type="text" id="settings-whatsapp" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600" value="5545999689893">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-medium text-neutral-400 mb-1">Link do Logo</label>
+                            <input type="text" id="settings-logo-url" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600" placeholder="https://...">
+                        </div>
+                        <button onclick="saveSettingsAndSync()" class="bg-white text-black font-semibold px-5 py-2.5 rounded-xl hover:bg-neutral-200 transition text-xs cursor-pointer">Salvar Configurações</button>
+
+                        <hr class="border-neutral-800 my-4">
+
+                        <h3 class="text-sm font-semibold text-white">Alterar Senha PIN do Admin</h3>
+                        <div>
+                            <label class="block text-[11px] font-medium text-neutral-400 mb-1">Novo PIN (números)</label>
+                            <input type="password" id="settings-new-pin" placeholder="Ex: 1234" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-neutral-600">
+                        </div>
+                        <button onclick="saveNewPin()" class="bg-white text-black font-semibold px-5 py-2.5 rounded-xl hover:bg-neutral-200 transition text-xs cursor-pointer">Atualizar PIN</button>
+                    </div>
+                </div>
+
+                <!-- ABA REPOSITÓRIO GITHUB -->
+                <div id="admin-tab-repo" class="space-y-6 hidden">
+                    <div class="space-y-4 max-w-xl">
+                        <h3 class="text-sm font-semibold text-white">Conexão com Repositório do GitHub</h3>
+                        <p class="text-xs text-neutral-400">Insira seu repositório público (ex: usuario/nocturn-catalog) e seu Token para ativar a sincronização em tempo real entre celular e PC.</p>
+                        
+                        <div>
+                            <label class="block text-[11px] font-medium text-neutral-400 mb-1">Repositório</label>
+                            <input type="text" id="repo-name" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-neutral-600" placeholder="seu-usuario/nocturn-repo">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-medium text-neutral-400 mb-1">Token do GitHub (com permissão 'repo')</label>
+                            <input type="password" id="repo-token" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-neutral-600" placeholder="ghp_...">
+                        </div>
+                        <div class="flex gap-2 pt-2">
+                            <button onclick="saveRepoConfig()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2 rounded-xl text-xs transition cursor-pointer">Salvar & Testar Conexão</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE SENHA PIN -->
+    <div id="pin-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#0a0a0a] border border-neutral-800 rounded-2xl max-w-xs w-full p-6 text-center shadow-2xl">
+            <h3 class="text-sm font-bold text-white mb-2">Acesso Restrito</h3>
+            <p class="text-xs text-neutral-400 mb-4">Insira o PIN de administrador:</p>
+            <input type="password" id="pin-input" placeholder="PIN (padrão: 1234)" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2.5 text-center text-sm text-white tracking-widest mb-4 focus:outline-none focus:border-neutral-600" onkeydown="if(event.key==='Enter') verifyPin()">
+            <div class="flex gap-2">
+                <button onclick="closePinModal()" class="flex-1 bg-neutral-900 text-neutral-400 py-2 rounded-xl text-xs hover:bg-neutral-800 transition cursor-pointer">Cancelar</button>
+                <button onclick="verifyPin()" class="flex-1 bg-white text-black font-semibold py-2 rounded-xl text-xs hover:bg-neutral-200 transition cursor-pointer">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        let repoConfig = JSON.parse(localStorage.getItem('nd_repo_config')) || { repo: "", token: "" };
+        const defaultLogoFallback = 'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'%230a0a0a\'/><text x=\'50\' y=\'55\' font-size=\'36\' fill=\'%23fff\' font-family=\'sans-serif\' text-anchor=\'middle\' dominant-baseline=\'middle\'>ND</text></svg>';
+
+        let products = JSON.parse(localStorage.getItem('nd_products')) || [];
+        let cart = JSON.parse(localStorage.getItem('nd_cart')) || [];
+        let ordersHistory = JSON.parse(localStorage.getItem('nd_orders_history')) || {};
+        let storeSettings = JSON.parse(localStorage.getItem('nd_settings')) || {
+            name: "Nocturn Dept.",
+            whatsapp: "5545999689893",
+            logo: defaultLogoFallback,
+            pin: "1234"
+        };
+
+        let currentCategory = 'all';
+        let currentSearchQuery = '';
+        let currentEditingImages = ["", "", ""];
+
+        async function loadFromGitHub(showAlert = false) {
+            const dot = document.getElementById('admin-sync-dot');
+            const topDot = document.getElementById('cloud-status-dot');
+            
+            if (!repoConfig.repo || !repoConfig.token) {
+                if(dot) dot.className = "w-3 h-3 bg-amber-500 rounded-full";
+                if(topDot) topDot.className = "w-2 h-2 rounded-full bg-amber-500";
+                finishInitialLoad();
+                return;
+            }
+
+            try {
+                const res = await fetch(`https://api.github.com/repos/${repoConfig.repo.trim()}/contents/nocturn_db.json`, {
+                    headers: {
+                        'Authorization': `token ${repoConfig.token.trim()}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+
+                if (res.ok) {
+                    const fileData = await res.json();
+                    const jsonString = decodeURIComponent(escape(atob(fileData.content)));
+                    const db = JSON.parse(jsonString);
+
+                    if (Array.isArray(db.products)) products = db.products;
+                    if (db.storeSettings) storeSettings = { ...storeSettings, ...db.storeSettings };
+                    if (db.ordersHistory) ordersHistory = db.ordersHistory;
+
+                    localStorage.setItem('nd_products', JSON.stringify(products));
+                    localStorage.setItem('nd_settings', JSON.stringify(storeSettings));
+                    localStorage.setItem('nd_orders_history', JSON.stringify(ordersHistory));
+
+                    if(dot) dot.className = "w-3 h-3 bg-emerald-500 rounded-full";
+                    if(topDot) topDot.className = "w-2 h-2 rounded-full bg-emerald-500";
+                    if(showAlert) alert('Sincronizado com sucesso!');
+                } else {
+                    await syncToGitHub(true);
+                }
+            } catch (e) {
+                console.warn("Erro ao buscar do GitHub:", e);
+                if(dot) dot.className = "w-3 h-3 bg-red-500 rounded-full";
+                if(topDot) topDot.className = "w-2 h-2 rounded-full bg-red-500";
+            } finally {
+                finishInitialLoad();
+            }
+        }
+
+        async function syncToGitHub(silent = false) {
+            localStorage.setItem('nd_products', JSON.stringify(products));
+            localStorage.setItem('nd_settings', JSON.stringify(storeSettings));
+            localStorage.setItem('nd_orders_history', JSON.stringify(ordersHistory));
+
+            const dot = document.getElementById('admin-sync-dot');
+            const topDot = document.getElementById('cloud-status-dot');
+
+            if (!repoConfig.repo || !repoConfig.token) {
+                if(!silent) alert('Salvo localmente! Configure o repositório na aba "Configuração Nuvem".');
+                return;
+            }
+
+            try {
+                const payload = JSON.stringify({ products, storeSettings, ordersHistory }, null, 2);
+                const encodedContent = btoa(unescape(encodeURIComponent(payload)));
+                const repoPath = repoConfig.repo.trim();
+
+                let fileSha = null;
+                const getRes = await fetch(`https://api.github.com/repos/${repoPath}/contents/nocturn_db.json`, {
+                    headers: { 'Authorization': `token ${repoConfig.token.trim()}`, 'Accept': 'application/vnd.github.v3+json' }
+                });
+                if (getRes.ok) {
+                    const fileInfo = await getRes.json();
+                    fileSha = fileInfo.sha;
+                }
+
+                const putRes = await fetch(`https://api.github.com/repos/${repoPath}/contents/nocturn_db.json`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${repoConfig.token.trim()}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: 'Nocturn Dept. Auto-Sync Update',
+                        content: encodedContent,
+                        sha: fileSha
+                    })
+                });
+
+                if (putRes.ok) {
+                    if(dot) dot.className = "w-3 h-3 bg-emerald-500 rounded-full";
+                    if(topDot) topDot.className = "w-2 h-2 rounded-full bg-emerald-500";
+                    if(!silent) alert('Publicado na nuvem! Disponível em todos os dispositivos instantaneamente.');
+                } else {
+                    const err = await putRes.json();
+                    throw new Error(err.message || 'Erro ao sincronizar');
+                }
+            } catch (err) {
+                console.error("Erro:", err);
+                if(dot) dot.className = "w-3 h-3 bg-red-500 rounded-full";
+                if(topDot) topDot.className = "w-2 h-2 rounded-full bg-red-500";
+                if(!silent) alert('Salvo no dispositivo local!');
+            }
+        }
+
+        function finishInitialLoad() {
+            document.getElementById('loading-state').classList.add('hidden');
+            document.getElementById('product-grid').classList.remove('hidden');
+            applySettings();
+            renderProducts();
+            if (!document.getElementById('admin-modal').classList.contains('hidden')) {
+                renderAdminProducts();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFromGitHub(false);
+
+            let clickCount = 0;
+            let clickTimer = null;
+            document.getElementById('admin-trigger').addEventListener('click', () => {
+                clickCount++;
+                if (clickCount === 3) { openPinModal(); clickCount = 0; }
+                clearTimeout(clickTimer);
+                clickTimer = setTimeout(() => { clickCount = 0; }, 600);
+            });
+        });
+
+        function applySettings() {
+            document.getElementById('store-title-main').textContent = storeSettings.name.toUpperCase();
+            document.getElementById('store-title-header').textContent = storeSettings.name.toUpperCase();
+            document.getElementById('header-whatsapp-number').textContent = `+${storeSettings.whatsapp}`;
+            document.getElementById('header-whatsapp-link').href = `https://wa.me/${storeSettings.whatsapp}`;
+            document.getElementById('header-logo-img').src = storeSettings.logo || defaultLogoFallback;
+            document.getElementById('footer-logo-img').src = storeSettings.logo || defaultLogoFallback;
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            const emptyState = document.getElementById('empty-state');
+            grid.innerHTML = '';
+
+            let filtered = products.filter(p => {
+                const matchCategory = currentCategory === 'all' || p.category === currentCategory;
+                const matchSearch = p.name.toLowerCase().includes(currentSearchQuery.toLowerCase());
+                return matchCategory && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = `group bg-[#0a0a0a] border border-neutral-900 rounded-2xl overflow-hidden flex flex-col hover:border-neutral-700 transition duration-300 ${product.soldOut ? 'opacity-60' : ''}`;
+                
+                let sizesHtml = product.sizes.map(size => `
+                    <button onclick="selectProductSize(${product.id}, '${size}', this)" class="size-btn-${product.id} text-[11px] font-medium px-2.5 py-1 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300 hover:border-neutral-500 transition cursor-pointer">${size}</button>
+                `).join('');
+
+                const mainImg = (product.images && product.images[0]) ? product.images[0] : defaultLogoFallback;
+                const hasMultiple = product.images && product.images.length > 1;
+
+                card.innerHTML = `
+                    <div class="relative aspect-[4/5] bg-neutral-950 overflow-hidden flex items-center justify-center cursor-pointer" onclick="openProductModal(${product.id})">
+                        <img src="${mainImg}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        ${hasMultiple ? '<span class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-md text-white text-[10px] px-2 py-0.5 rounded-md font-mono border border-neutral-800">📸 ' + product.images.length + ' fotos</span>' : ''}
+                        ${product.soldOut ? '<div class="absolute inset-0 bg-black/70 flex items-center justify-center"><span class="bg-white text-black font-bold text-xs uppercase px-3 py-1.5 rounded-lg tracking-wider">Esgotado</span></div>' : ''}
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow justify-between">
+                        <div>
+                            <span class="text-[10px] text-neutral-500 uppercase tracking-widest block mb-1">${product.category}</span>
+                            <h3 class="font-semibold text-white text-sm mb-2 cursor-pointer hover:underline" onclick="openProductModal(${product.id})">${product.name}</h3>
+                            <div class="flex flex-wrap gap-1.5 mb-3" id="sizes-${product.id}">${sizesHtml}</div>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-neutral-900">
+                            <span class="font-bold text-white text-sm">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
+                            <button ${product.soldOut ? 'disabled' : ''} onclick="addToCart(${product.id})" class="bg-white text-black font-semibold text-xs px-4 py-2 rounded-xl hover:bg-neutral-200 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            const content = document.getElementById('modal-product-content');
+            
+            const renderGallery = (idx) => {
+                const activeImg = (product.images && product.images[idx]) ? product.images[idx] : defaultLogoFallback;
+                let thumbsHtml = product.images.map((img, i) => `
+                    <button onclick="changeModalPhoto(${productId}, ${i})" class="w-14 h-16 rounded-lg overflow-hidden border-2 ${i === idx ? 'border-white' : 'border-neutral-800 opacity-60'} transition cursor-pointer">
+                        <img src="${img}" class="w-full h-full object-cover">
+                    </button>
+                `).join('');
+
+                content.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="relative aspect-[4/5] bg-neutral-950 rounded-xl overflow-hidden flex items-center justify-center">
+                            <img src="${activeImg}" class="w-full h-full object-cover">
+                        </div>
+                        ${product.images.length > 1 ? `<div class="flex gap-2 overflow-x-auto pb-2">${thumbsHtml}</div>` : ''}
+                        <div>
+                            <span class="text-[10px] text-neutral-500 uppercase tracking-widest">${product.category}</span>
+                            <h2 class="text-xl font-bold text-white">${product.name}</h2>
+                            <p class="text-lg font-bold text-white mt-1">R$ ${product.price.toFixed(2).replace('.', ',')}</p>
+                        </div>
+                        <button onclick="closeProductModal(); addToCart(${product.id});" ${product.soldOut ? 'disabled' : ''} class="w-full bg-white text-black font-semibold py-3 rounded-xl hover:bg-neutral-200 transition text-sm cursor-pointer disabled:opacity-50">
+                            Adicionar à Sacola
+                        </button>
+                    </div>
+                `;
+            };
+
+            window.changeModalPhoto = (pId, photoIdx) => { renderGallery(photoIdx); };
+            renderGallery(0);
+            document.getElementById('product-detail-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() { document.getElementById('product-detail-modal').classList.add('hidden'); }
+
+        let selectedSizes = {};
+        function selectProductSize(productId, size, btnElement) {
+            selectedSizes[productId] = size;
+            const container = document.getElementById(`sizes-${productId}`);
+            container.querySelectorAll('button').forEach(b => {
+                b.classList.remove('border-white', 'bg-white', 'text-black');
+                b.classList.add('bg-neutral-900', 'border-neutral-800', 'text-neutral-300');
+            });
+            btnElement.classList.remove('bg-neutral-900', 'border-neutral-800', 'text-neutral-300');
+            btnElement.classList.add('border-white', 'bg-white', 'text-black');
+        }
+
+        function setCategory(cat, btnElement) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-black');
+                btn.classList.add('bg-neutral-900', 'text-neutral-400');
+            });
+            if (btnElement) {
+                btnElement.classList.remove('bg-neutral-900', 'text-neutral-400');
+                btnElement.classList.add('bg-white', 'text-black');
+            }
+            renderProducts();
+        }
+
+        function filterProducts() {
+            currentSearchQuery = document.getElementById('search-input').value;
+            renderProducts();
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const chosenSize = selectedSizes[productId] || product.sizes[0];
+            const primaryImage = (product.images && product.images[0]) ? product.images[0] : defaultLogoFallback;
+
+            const existingItem = cart.find(item => item.id === productId && item.size === chosenSize);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ id: product.id, name: product.name, price: product.price, size: chosenSize, image: primaryImage, quantity: 1 });
+            }
+
+            saveCart();
+            updateCartCount();
+            toggleCart();
+        }
+
+        function saveCart() { localStorage.setItem('nd_cart', JSON.stringify(cart)); }
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-badge').textContent = totalItems;
+            document.getElementById('cart-count-badge').textContent = totalItems;
+            renderCartItems();
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            if (drawer.classList.contains('translate-x-full')) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+            if (cart.length === 0) {
+                container.innerHTML = '<div class="text-center py-16 text-neutral-500 text-xs">Sua sacola está vazia.</div>';
+                document.getElementById('cart-subtotal').textContent = 'R$ 0,00';
+                return;
+            }
+
+            let subtotal = 0;
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.quantity;
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'py-4 flex items-center gap-3';
+                itemDiv.innerHTML = `
+                    <div class="w-14 h-16 bg-neutral-900 rounded-xl overflow-hidden flex-shrink-0"><img src="${item.image}" class="w-full h-full object-cover"></div>
+                    <div class="flex-grow">
+                        <h4 class="text-xs font-semibold text-white">${item.name}</h4>
+                        <span class="text-[11px] text-neutral-400 block">Tamanho: <strong class="text-white">${item.size}</strong></span>
+                        <span class="text-xs font-bold text-white mt-1 block">R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+                    </div>
+                    <div class="flex flex-col items-end gap-2">
+                        <button onclick="removeFromCart(${index})" class="text-neutral-500 hover:text-white transition cursor-pointer"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+                        <div class="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-lg px-2 py-1">
+                            <button onclick="updateQty(${index}, -1)" class="text-neutral-400 hover:text-white font-bold text-xs cursor-pointer">-</button>
+                            <span class="text-xs text-white font-medium">${item.quantity}</span>
+                            <button onclick="updateQty(${index}, 1)" class="text-neutral-400 hover:text-white font-bold text-xs cursor-pointer">+</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(itemDiv);
+            });
+            document.getElementById('cart-subtotal').textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+        }
+
+        function updateQty(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) cart.splice(index, 1);
+            saveCart();
+            updateCartCount();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCart();
+            updateCartCount();
+        }
+
+        async function checkoutWhatsApp() {
+            if (cart.length === 0) { alert('Sua sacola está vazia.'); return; }
+
+            const customerName = document.getElementById('customer-name').value.trim() || 'Cliente';
+            const deliveryMethod = document.getElementById('customer-delivery').value;
+            const customerAddress = document.getElementById('customer-address').value.trim() || 'Não informado';
+
+            const orderNum = Math.floor(1000 + Math.random() * 9000);
+            const orderCode = `#PED-${orderNum}`;
+
+            const compactItems = cart.map(item => ({
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                size: item.size,
+                quantity: item.quantity
+            }));
+
+            ordersHistory[orderCode] = {
+                name: customerName,
+                delivery: deliveryMethod,
+                address: customerAddress,
+                items: compactItems,
+                date: new Date().toLocaleString('pt-BR')
+            };
+
+            await syncToGitHub(true);
+
+            let message = `*NOCTURN DEPT. // NOVO PEDIDO*\n`;
+            message += `--------------------------------\n`;
+            message += `*Pedido:* ${orderCode}\n`;
+            message += `*Nome:* ${customerName}\n`;
+            message += `*Método:* ${deliveryMethod}\n`;
+            message += `*Bairro/Local:* ${customerAddress}\n`;
+            message += `--------------------------------\n`;
+            message += `*ITENS DO PEDIDO:*\n`;
+
+            let total = 0;
+            cart.forEach(item => {
+                let itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                message += `• ${item.quantity}x ${item.name} (Tam: ${item.size}) - R$ ${itemTotal.toFixed(2).replace('.', ',')}\n`;
+            });
+
+            message += `--------------------------------\n`;
+            message += `*TOTAL: R$ ${total.toFixed(2).replace('.', ',')}*\n`;
+
+            window.pendingWhatsAppUrl = `https://wa.me/${storeSettings.whatsapp}?text=${encodeURIComponent(message)}`;
+            document.getElementById('modal-order-code').textContent = orderCode;
+            document.getElementById('order-modal').classList.remove('hidden');
+
+            cart = [];
+            saveCart();
+            updateCartCount();
+            toggleCart();
+        }
+
+        function executeWhatsAppRedirect() {
+            if (window.pendingWhatsAppUrl) window.open(window.pendingWhatsAppUrl, '_blank');
+            closeOrderModal();
+        }
+
+        function closeOrderModal() { document.getElementById('order-modal').classList.add('hidden'); }
+
+        function openPinModal() {
+            document.getElementById('pin-modal').classList.remove('hidden');
+            document.getElementById('pin-input').value = '';
+            document.getElementById('pin-input').focus();
+        }
+        function closePinModal() { document.getElementById('pin-modal').classList.add('hidden'); }
+
+        function verifyPin() {
+            if (document.getElementById('pin-input').value === storeSettings.pin) {
+                closePinModal();
+                openAdmin();
+            } else {
+                alert('PIN incorreto.');
+            }
+        }
+
+        function openAdmin() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+            renderAdminProducts();
+            document.getElementById('settings-store-name').value = storeSettings.name;
+            document.getElementById('settings-whatsapp').value = storeSettings.whatsapp;
+            document.getElementById('settings-logo-url').value = storeSettings.logo;
+            document.getElementById('repo-name').value = repoConfig.repo;
+            document.getElementById('repo-token').value = repoConfig.token;
+        }
+
+        function closeAdmin() { document.getElementById('admin-modal').classList.add('hidden'); }
+
+        function switchAdminTab(tabName) {
+            ['products', 'lookup', 'settings', 'repo'].forEach(t => {
+                document.getElementById(`admin-tab-${t}`).classList.add('hidden');
+                document.getElementById(`tab-btn-${t}`).classList.remove('border-b-2', 'border-white', 'text-white');
+                document.getElementById(`tab-btn-${t}`).classList.add('text-neutral-400');
+            });
+            document.getElementById(`admin-tab-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-btn-${tabName}`).classList.add('border-b-2', 'border-white', 'text-white');
+            document.getElementById(`tab-btn-${tabName}`).classList.remove('text-neutral-400');
+        }
+
+        async function lookupOrder() {
+            let code = document.getElementById('lookup-code-input').value.trim().toUpperCase();
+            if (code && !code.startsWith('#')) {
+                code = code.startsWith('PED-') ? `#${code}` : `#PED-${code}`;
+            }
+
+            const resultBox = document.getElementById('lookup-result');
+            resultBox.innerHTML = '<p class="text-xs text-neutral-400">Buscando pedido...</p>';
+
+            await loadFromGitHub(false);
+            resultBox.innerHTML = '';
+
+            if (!code) {
+                resultBox.innerHTML = '<p class="text-xs text-red-400">Digite um código de pedido (ex: #PED-4829).</p>';
+                return;
+            }
+
+            const order = ordersHistory[code];
+            if (!order) {
+                resultBox.innerHTML = `<p class="text-xs text-neutral-400">Nenhum pedido encontrado com o código <strong class="text-white">${code}</strong>.</p>`;
+                return;
+            }
+
+            let itemsHtml = order.items.map(item => {
+                const prod = products.find(p => p.id === item.id);
+                const itemImg = (prod && prod.images && prod.images[0]) ? prod.images[0] : (item.image || defaultLogoFallback);
+                
+                return `
+                <div class="flex items-center gap-3 bg-neutral-900 p-2.5 rounded-xl border border-neutral-800">
+                    <div class="w-12 h-14 rounded-lg overflow-hidden bg-neutral-950 flex-shrink-0">
+                        <img src="${itemImg}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xs font-semibold text-white">${item.name}</h4>
+                        <span class="text-[11px] text-neutral-400">Tamanho: <strong class="text-white">${item.size}</strong> | Qtd: <strong class="text-white">${item.quantity}</strong></span>
+                    </div>
+                    <span class="text-xs font-bold text-white">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
+                </div>
+            `}).join('');
+
+            resultBox.innerHTML = `
+                <div class="bg-neutral-950 border border-neutral-800 rounded-xl p-4 space-y-3">
+                    <div class="flex justify-between items-center border-b border-neutral-900 pb-2">
+                        <span class="text-xs font-bold font-mono text-emerald-400">${code}</span>
+                        <span class="text-[10px] text-neutral-500">${order.date}</span>
+                    </div>
+                    <div class="text-xs text-neutral-300 space-y-1">
+                        <p><strong>Cliente:</strong> ${order.name}</p>
+                        <p><strong>Método:</strong> ${order.delivery}</p>
+                        <p><strong>Local/Bairro:</strong> ${order.address}</p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-neutral-900">
+                        <span class="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider block">Peças Solicitadas:</span>
+                        ${itemsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAdminProducts() {
+            const list = document.getElementById('admin-product-list');
+            list.innerHTML = '';
+            if (products.length === 0) {
+                list.innerHTML = '<tr><td colspan="4" class="p-4 text-center text-neutral-500">Nenhuma peça cadastrada.</td></tr>';
+                return;
+            }
+            products.forEach(p => {
+                const primaryImg = (p.images && p.images[0]) ? p.images[0] : defaultLogoFallback;
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-neutral-900 hover:bg-neutral-900/40';
+                tr.innerHTML = `
+                    <td class="p-3 flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg overflow-hidden bg-neutral-900 flex-shrink-0"><img src="${primaryImg}" class="w-full h-full object-cover"></div>
+                        <div>
+                            <span class="font-medium text-white block">${p.name}</span>
+                            <span class="text-[10px] text-neutral-500">${p.images ? p.images.length : 1} foto(s)</span>
+                            ${p.soldOut ? '<span class="text-[10px] text-red-400 ml-2">Esgotado</span>' : ''}
+                        </div>
+                    </td>
+                    <td class="p-3 text-neutral-400">${p.category}</td>
+                    <td class="p-3 font-semibold text-white">R$ ${p.price.toFixed(2).replace('.', ',')}</td>
+                    <td class="p-3 text-right space-x-2">
+                        <button onclick="editProduct(${p.id})" class="text-neutral-400 hover:text-white transition cursor-pointer">Editar</button>
+                        <button onclick="deleteProduct(${p.id})" class="text-red-400 hover:text-red-300 transition cursor-pointer">Excluir</button>
+                    </td>
+                `;
+                list.appendChild(tr);
+            });
+        }
+
+        function openProductForm() {
+            document.getElementById('edit-product-id').value = '';
+            document.getElementById('form-name').value = '';
+            document.getElementById('form-price').value = '';
+            document.getElementById('form-sizes').value = 'P, M, G, GG';
+            document.getElementById('form-soldout').checked = false;
+            currentEditingImages = ["", "", ""];
+            
+            for (let i = 0; i < 3; i++) {
+                document.getElementById(`file-input-${i}`).value = "";
+                document.getElementById(`preview-slot-${i}`).innerHTML = `<span class="text-neutral-600 text-[10px]">Sem foto</span>`;
+            }
+            document.getElementById('product-form-box').classList.remove('hidden');
+        }
+
+        function cancelProductForm() { document.getElementById('product-form-box').classList.add('hidden'); }
+
+        function handleFileUpload(index, event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.src = e.target.result;
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    let width = img.width;
+                    let height = img.height;
+                    const MAX_DIM = 900; 
+                    if (width > height && width > MAX_DIM) {
+                        height *= MAX_DIM / width;
+                        width = MAX_DIM;
+                    } else if (height > MAX_DIM) {
+                        width *= MAX_DIM / height;
+                        height = MAX_DIM;
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    const optimizedDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+                    currentEditingImages[index] = optimizedDataUrl;
+                    document.getElementById(`preview-slot-${index}`).innerHTML = `<img src="${optimizedDataUrl}" class="w-full h-full object-cover">`;
+                };
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function editProduct(id) {
+            const p = products.find(prod => prod.id === id);
+            document.getElementById('edit-product-id').value = p.id;
+            document.getElementById('form-name').value = p.name;
+            document.getElementById('form-category').value = p.category;
+            document.getElementById('form-price').value = p.price;
+            document.getElementById('form-sizes').value = p.sizes.join(', ');
+            document.getElementById('form-soldout').checked = p.soldOut;
+            
+            currentEditingImages = [
+                p.images && p.images[0] ? p.images[0] : "",
+                p.images && p.images[1] ? p.images[1] : "",
+                p.images && p.images[2] ? p.images[2] : ""
+            ];
+
+            for (let i = 0; i < 3; i++) {
+                document.getElementById(`file-input-${i}`).value = "";
+                const slotDiv = document.getElementById(`preview-slot-${i}`);
+                if (currentEditingImages[i]) {
+                    slotDiv.innerHTML = `<img src="${currentEditingImages[i]}" class="w-full h-full object-cover">`;
+                } else {
+                    slotDiv.innerHTML = `<span class="text-neutral-600 text-[10px]">Sem foto</span>`;
+                }
+            }
+            document.getElementById('product-form-box').classList.remove('hidden');
+        }
+
+        async function saveProductAndSync() {
+            const id = document.getElementById('edit-product-id').value;
+            const name = document.getElementById('form-name').value.trim();
+            const category = document.getElementById('form-category').value;
+            const price = parseFloat(document.getElementById('form-price').value);
+            const sizes = document.getElementById('form-sizes').value.split(',').map(s => s.trim()).filter(Boolean);
+            const soldOut = document.getElementById('form-soldout').checked;
+
+            if (!name || isNaN(price)) { alert('Preencha o nome e o preço corretamente.'); return; }
+
+            const finalImages = currentEditingImages.filter(Boolean);
+            if (finalImages.length === 0) finalImages.push(defaultLogoFallback);
+
+            if (id) {
+                const p = products.find(prod => prod.id == id);
+                p.name = name; p.category = category; p.price = price; p.images = finalImages; p.sizes = sizes; p.soldOut = soldOut;
+            } else {
+                const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+                products.push({ id: newId, name, category, price, images: finalImages, sizes, soldOut });
+            }
+
+            const btn = document.getElementById('save-product-btn');
+            btn.textContent = "Publicando...";
+            btn.disabled = true;
+
+            await syncToGitHub(false);
+
+            btn.textContent = "🚀 Salvar & Publicar na Nuvem";
+            btn.disabled = false;
+
+            cancelProductForm();
+            renderAdminProducts();
+            renderProducts();
+        }
+
+        async function deleteProduct(id) {
+            if (confirm('Deseja excluir esta peça?')) {
+                products = products.filter(p => p.id !== id);
+                await syncToGitHub(false);
+                renderAdminProducts();
+                renderProducts();
+            }
+        }
+
+        async function saveSettingsAndSync() {
+            storeSettings.name = document.getElementById('settings-store-name').value.trim() || 'Nocturn Dept.';
+            storeSettings.whatsapp = document.getElementById('settings-whatsapp').value.trim() || '5545999689893';
+            storeSettings.logo = document.getElementById('settings-logo-url').value.trim() || defaultLogoFallback;
+
+            applySettings();
+            await syncToGitHub(false);
+            alert('Configurações salvas e publicadas!');
+        }
+
+        async function saveNewPin() {
+            const newpin = document.getElementById('settings-new-pin').value.trim();
+            if (newpin.length < 3) { alert('O PIN deve ter pelo menos 3 caracteres.'); return; }
+            storeSettings.pin = newpin;
+            document.getElementById('settings-new-pin').value = '';
+            await syncToGitHub(false);
+            alert('PIN atualizado com sucesso!');
+        }
+
+        async function saveRepoConfig() {
+            const repo = document.getElementById('repo-name').value.trim();
+            const token = document.getElementById('repo-token').value.trim();
+
+            if (!repo || !token) {
+                alert('Preencha o repositório e o token.');
+                return;
+            }
+
+            repoConfig = { repo, token };
+            localStorage.setItem('nd_repo_config', JSON.stringify(repoConfig));
+            alert('Testando conexão com o repositório...');
+            await loadFromGitHub(true);
+        }
+    </script>
+</body>
+</html>
